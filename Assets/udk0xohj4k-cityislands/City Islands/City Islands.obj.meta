@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: bb3c97344f2481945a83645e026c88c9
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: default
+    100004: mesh01
+    400000: //RootNode
+    400002: default
+    400004: mesh01
+    2100000: default
+    2100002: default_interior_land
+    2100004: default_road
+    2100006: default_bridges
+    2100008: default_city_bldgs
+    2100010: default_roof
+    2100012: default_s1
+    2100014: default_s1_fedex
+    2100016: default_s1_cocacola
+    2100018: default_s1_sprite
+    2100020: default_s1_uhaul
+    2100022: default_shopping_center
+    2100024: default_wall2
+    2100026: default_bldg
+    2100028: default_parking
+    2100030: default_roof_flat
+    2100032: default_roof_shopping_center
+    2100034: default_windows
+    2100036: default_tires
+    2100038: default_body
+    2100040: default_windows_car
+    2100042: default_tires_car
+    2100044: default_body_car
+    2100046: default_windows_car_1
+    2100048: default_tires_car_1
+    2100050: default_body_car_1
+    2100052: default_windows_car_2
+    2100054: default_tires_car_2
+    2100056: default_body_car_2
+    2100058: default_windows_car_3
+    2100060: default_tires_car_3
+    2100062: default_body_car_3
+    2100064: default_windows_car_4
+    2100066: default_tires_car_4
+    2100068: default_body_car_4
+    2100070: default_windows_car_5
+    2100072: default_tires_car_5
+    2100074: default_body_car_5
+    2100076: default_windows_car_6
+    2100078: default_tires_car_6
+    2100080: default_body_car_6
+    2100082: default_windows_car_7
+    2100084: default_tires_car_7
+    2100086: default_body_car_7
+    2100088: default_windows_car_8
+    2100090: default_tires_car_8
+    2100092: default_body_car_8
+    2100094: default_windows_car_9
+    2100096: default_tires_car_9
+    2100098: default_body_car_9
+    2100100: default_windows_car_10
+    2100102: default_tires_car_10
+    2100104: default_body_car_10
+    2100106: default_car
+    2100108: default_car_1
+    2100110: default_car_2
+    2100112: default_car_3
+    2100114: default_car_4
+    2100116: default_car_5
+    2100118: default_car_6
+    2100120: default_car_7
+    2100122: default_car_8
+    2100124: default_car_9
+    2100126: default_car_10
+    2100128: default_car_11
+    2100130: default_country_club_house
+    2100132: default_town_roofs
+    2100134: default_town_walls
+    2100136: default_house_complex
+    2100138: default_bldgs_dowtown
+    2100140: default_station.mult
+    2100142: default_roof_&_pumps_mult
+    2100144: default_window_mult
+    2100146: default_floor_mult
+    2100148: default_rims_mult3
+    2100150: default_tires_&_windows_3
+    2100152: default_car_truck_bodies
+    2300000: default
+    2300002: mesh01
+    3300000: default
+    3300002: mesh01
+    4300000: default
+    4300002: mesh01
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
