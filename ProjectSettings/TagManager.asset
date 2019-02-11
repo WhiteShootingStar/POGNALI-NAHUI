@@ -11,6 +11,7 @@ TagManager:
   - Shot
   - Vitya
   - Tom
+  - Ammo
   layers:
   - Default
   - TransparentFX
