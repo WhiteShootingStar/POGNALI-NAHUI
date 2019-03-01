@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57cb4e7fc77fac4abb22f982de9d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 54735349769179704}
   speed: 75
   exp: {fileID: 1339219606777178, guid: 2a980b654d3e405459f1ce4d7ad35d44, type: 3}
-  tank: {fileID: 1592354774354090, guid: 14bdc80aeb70f2f4b89c68645847c1b4, type: 3}
 --- !u!1 &1688760653567874
 GameObject:
   m_ObjectHideFlags: 0

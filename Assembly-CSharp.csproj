@@ -61,14 +61,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AdviceTextScript.cs" />
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\FenceScript.cs" />
     <Compile Include="Assets\Scripts\GIU.cs" />
     <Compile Include="Assets\Scripts\Rocket.cs" />
+    <Compile Include="Assets\Scripts\rocketTer.cs" />
     <Compile Include="Assets\Scripts\SmallRocket.cs" />
     <Compile Include="Assets\Scripts\Sounds.cs" />
     <Compile Include="Assets\Scripts\TankMovingscript.cs" />
+    <Compile Include="Assets\Scripts\Terrorist.cs" />
     <Compile Include="Assets\Scripts\TextScript.cs" />
+    <Compile Include="Assets\Scripts\TowerScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

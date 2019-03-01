@@ -4,10 +4,10 @@ using UnityEngine;
 
 
 public class Rocket : MonoBehaviour {
-    Rigidbody rb;
+  public  Rigidbody rb;
     public float speed = 10000;
    public  GameObject exp;
-    public GameObject tank;
+   // public GameObject tank;
   
     // Use this for initialization
     void Start () {
@@ -20,20 +20,21 @@ public class Rocket : MonoBehaviour {
 	
    
 	// Update is called once per frame
-	void FixedUpdate () {
+	public virtual void FixedUpdate () {
         rb.transform.Translate(-Vector3.up*Time.fixedDeltaTime*speed*15);
         // rb.transform.Translate(Vector3.forward * Time.fixedDeltaTime * speed*0.1f );
         rb.transform.Translate(-Vector3.back * Time.fixedDeltaTime * 15);
        
     }
    
-    void OnTriggerEnter(Collider other)
+  public virtual  void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Obstacle")
         {
             // exp.SetActive(true);
             Instantiate(exp, transform.position, transform.rotation);
             Destroy(gameObject);
+            
             print(other.tag);
         }
         else if(other.tag == "Vitya")
@@ -53,13 +54,21 @@ public class Rocket : MonoBehaviour {
             Destroy(other.gameObject);
         }                             // 
 
+        else if (other.tag == "Terrorist")
+        {
+
+            other.gameObject.GetComponent<Terrorist>().hp -=Random.Range(100,130);
+            Instantiate(exp, transform.position, transform.rotation);
+            Destroy(gameObject);
+
+        }
         else
         {
            
             Instantiate(exp, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-
+      
     }
     }
         
