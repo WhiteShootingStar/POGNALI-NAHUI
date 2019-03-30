@@ -28,6 +28,7 @@ public class FenceScript : MonoBehaviour
         if (other.tag == "Shot")
         {
           rb.AddRelativeForce(new Vector3(Random.value, 1, Random.value) * 20, ForceMode.Impulse);
+            rb.transform.Rotate(new Vector3(Random.value, Random.value, Random.value)*10 , Space.Self);
             Destroy(gameObject, 7);
         }
     }

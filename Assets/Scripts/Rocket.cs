@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
   public  Rigidbody rb;
-    public float speed = 10000;
+    public float speed = 15;
    public  GameObject exp;
    // public GameObject tank;
   
@@ -22,12 +22,12 @@ public class Rocket : MonoBehaviour {
 	// Update is called once per frame
 	public virtual void FixedUpdate () {
         rb.transform.Translate(-Vector3.up*Time.fixedDeltaTime*speed*15);
-        // rb.transform.Translate(Vector3.forward * Time.fixedDeltaTime * speed*0.1f );
-        rb.transform.Translate(-Vector3.back * Time.fixedDeltaTime * 15);
-       
+       // rb.transform.Translate(Vector3.forward * Time.fixedDeltaTime * speed*0.1f );
+          rb.transform.Translate(-Vector3.back * Time.fixedDeltaTime * 15);
+
     }
-   
-  public virtual  void OnTriggerEnter(Collider other)
+
+    public virtual  void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Obstacle")
         {

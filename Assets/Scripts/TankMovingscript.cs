@@ -4,11 +4,11 @@ public class TankMovingscript : MonoBehaviour
 {
 
     public float hor, vert, speed, RotationSpeed, hp, ZZ, timer_repare;
-    int counter = 0;
+    int counter = 0, temp = 0;
     int ammo = 0;
     bool pule;
     Rigidbody rb, rbt, rbtur;
-    public GameObject bullet, gun, Pula, bullet1, gunTurret, Scope1;
+    public GameObject bullet, gun, Pula, bullet1, gunTurret, Scope1, Fire;
     public TowerScript tower;
     public GameObject[] steam;
     public AudioClip Shoot, ShootGun;
@@ -16,8 +16,8 @@ public class TankMovingscript : MonoBehaviour
     float reloadtimer, acseleration, angles = 0, reloadtimergun;
 
     AudioSource sour;
-    public Text scoreText,AdviceText;
-    public Image img, reload, Tank_HP, Turret_HP,Healing;
+    public Text scoreText, AdviceText;
+    public Image img, reload, Tank_HP, Turret_HP, Healing;
     public TMPro.TextMeshProUGUI bullets;
 
     int score = 0;
@@ -26,6 +26,7 @@ public class TankMovingscript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         total = GameObject.FindGameObjectsWithTag("Tom").Length;
         img.enabled = false;
         rb = GetComponent<Rigidbody>();
@@ -47,10 +48,11 @@ public class TankMovingscript : MonoBehaviour
         AdviceText.enabled = false;
         Pula.transform.localEulerAngles.Set(0, 0, 0);
         ammo = 34;
-        Healing.enabled=false;
-
+        Healing.enabled = false;
+        cam[2].enabled = false;
         timer_repare = 0;
         Healing.fillAmount = 0;
+        Fire.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,17 +65,19 @@ public class TankMovingscript : MonoBehaviour
         reload.fillAmount = 1 - (reloadtimer / 3);
         Tank_HP.fillAmount = hp / 400;
         Turret_HP.fillAmount = tower.hp / 150;
-        
-        if(tower.hp <= 0)
+
+        if (tower.hp <= 0 && hp>0)
         {
-           if(Input.GetKey(KeyCode.F))
+            AdviceText.enabled = true;
+            AdviceText.color = new Color(AdviceText.color.r, AdviceText.color.g, AdviceText.color.b, Mathf.Sin(Time.time * 2));
+            if (Input.GetKey(KeyCode.F))
             {
                 timer_repare += Time.deltaTime;
             }
-            if(timer_repare >= 3f)
+            if (timer_repare >= 3f)
             {
                 Healing.enabled = true;
-                Healing.fillAmount += Time.deltaTime;
+                Healing.fillAmount += Time.deltaTime / 3;
             }
             if (Healing.fillAmount >= 1)
             {
@@ -81,7 +85,35 @@ public class TankMovingscript : MonoBehaviour
                 timer_repare = 0f;
                 Healing.fillAmount = 0;
                 Healing.enabled = false;
+                AdviceText.enabled = false;
             }
+        }
+        if (hp <= 0)
+        {
+            Vector3 position = tower.transform.position;
+            tower.transform.parent = null;
+            if (temp == 0)
+            {
+                rbt.AddForce(Vector3.up * 500, ForceMode.Impulse);
+                rbt.AddForce(new Vector3(Random.value, 0, Random.value) * 200, ForceMode.Impulse);
+                rbt.AddForce(Vector3.down * 20, ForceMode.Force);
+                rbt.useGravity = true;
+                temp++;
+                tower.transform.position = position;
+                Fire.SetActive(true);
+                Pula.SetActive(false);
+                Scope1.SetActive(false);
+                gun.SetActive(false);
+            }
+            if (tower.transform.position.y > transform.position.y)
+            {
+                tower.transform.Rotate(new Vector3(Random.value, Random.value, Random.value) * 35 * Time.deltaTime);
+
+                tower.col.enabled = true;
+            }
+            cam[0].enabled = false;
+            cam[1].enabled = false;
+            cam[2].enabled = true;
         }
         if (score == total)
         {
@@ -95,7 +127,7 @@ public class TankMovingscript : MonoBehaviour
             reload.enabled = false;
 
         }
-        if (Input.GetMouseButtonDown(0) && reloadtimer < 0 && ammo > 0 && tower.hp>0)
+        if (Input.GetMouseButtonDown(0) && reloadtimer < 0 && ammo > 0 && tower.hp > 0)
         {
             Instantiate(bullet, gun.transform.position, tower.transform.rotation);
             reloadtimer = 3;
@@ -104,13 +136,13 @@ public class TankMovingscript : MonoBehaviour
             reload.enabled = true;
             reload.fillAmount = 0;
         }
-        if (Input.GetKey(KeyCode.Space) && reloadtimergun < 0 && tower.hp >0)
+        if (Input.GetKey(KeyCode.Space) && reloadtimergun < 0 && tower.hp > 0 && hp>0)
         {
             GameObject lox = Instantiate(bullet1, gunTurret.transform.position, gunTurret.transform.rotation);
 
             Destroy(lox, 5);
-            reloadtimergun = 0.1f;
-            sour.PlayOneShot(ShootGun, 1f);
+            reloadtimergun = 0.125f;
+            sour.PlayOneShot(ShootGun, 1.5f);
 
         }
         while (Input.GetKey(KeyCode.W) && acseleration < 5)
@@ -149,16 +181,18 @@ public class TankMovingscript : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (hp >= 0)
+        {
+            hor = Input.GetAxis("Horizontal");
+            vert = Input.GetAxis("Vertical");
 
-        hor = Input.GetAxis("Horizontal");
-        vert = Input.GetAxis("Vertical");
-
-        rb.transform.Translate(Vector3.forward * Time.fixedDeltaTime * -vert * speed * acseleration);
-        rb.transform.Rotate(Vector2.up * Time.fixedDeltaTime * RotationSpeed * hor, Space.World);
+            rb.transform.Translate(Vector3.forward * Time.fixedDeltaTime * -vert * speed * acseleration);
+            rb.transform.Rotate(Vector2.up * Time.fixedDeltaTime * RotationSpeed * hor, Space.World);
+        }
 
 
 
-        if (tower.hp > 0)
+        if (tower.hp > 0 && hp > 0)
         {
             rbt.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 15);
             float rotationY = Input.GetAxis("Mouse Y");

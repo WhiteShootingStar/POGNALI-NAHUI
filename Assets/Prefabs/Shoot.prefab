@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23118830814141544}
   - component: {fileID: 54735349769179704}
   - component: {fileID: 136218765916136754}
-  - component: {fileID: 114173090043114008}
+  - component: {fileID: 3621066610356494983}
   m_Layer: 0
   m_Name: Shoot
   m_TagString: Shot
@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616679145674996}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 968.3702, y: 1135.1927, z: 1208.4337}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4350274531144522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &33325829349886844
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 96
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &136218765916136754
 CapsuleCollider:
@@ -111,7 +111,7 @@ CapsuleCollider:
   m_Height: 2.16
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114173090043114008
+--- !u!114 &3621066610356494983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class Terrorist : MonoBehaviour
 {
-    public GameObject tank, rocket_ter, rocket_point;
+    public GameObject rocket_ter, rocket_point, rocket_point_stand;
+
     NavMeshAgent agent;
     Animator anim;
-
+    public TankMovingscript Tank;
     float reloadtimer = 4.5f;
     public int hp = 120;
     public bool roof;
@@ -18,9 +19,10 @@ public class Terrorist : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, tank.transform.position));
+        anim.SetFloat("Distance", Vector3.Distance(transform.position, Tank.transform.position));
+        anim.SetBool("IsWatchmen", roof);
         //    print(Vector3.Distance(transform.position, tank.transform.position));
-
+        //  tank = GameObject.FindGameObjectWithTag("Body");
     }
 
     // Update is called once per frame
@@ -37,27 +39,58 @@ public class Terrorist : MonoBehaviour
         }
         else
         {
-            agent.destination = tank.transform.position;
             reloadtimer -= Time.deltaTime;
-            anim.SetFloat("Distance", Vector3.Distance(transform.position, tank.transform.position));
-          
-
-            if (Vector3.Distance(transform.position, tank.transform.position) <= 200)
+            anim.SetFloat("Distance", Vector3.Distance(transform.position, Tank.transform.position));
+            if (roof == false)
             {
-                transform.LookAt(tank.transform.position);
-                if (reloadtimer < 0)
+                agent.destination = Tank.transform.position;
+
+
+
+                if (Vector3.Distance(transform.position, Tank.transform.position) <= 200 && Tank.hp > 0)
                 {
+                    transform.LookAt(Tank.transform.position);
 
-                    reloadtimer = 4.5f;
-                    Invoke("instR", 0.9f);
+                    if (reloadtimer < 0)
+                    {
 
+                        reloadtimer = 4.5f;
+                        Invoke("instR", 0.9f);
+
+                    }
+                }
+            }
+            else
+            {
+
+
+                if (Vector3.Distance(transform.position, Tank.transform.position) <= 800 && Tank.hp > 0)
+                {
+                    transform.LookAt(Tank.transform.position);
+
+
+                    if (reloadtimer < 0)
+                    {
+
+                        reloadtimer = 4.5f;
+                        Invoke("instRStand", 0.9f);
+
+                    }
                 }
             }
         }
     }
     void instR()
     {
+        //  rocket_point.transform.LookAt(Tank.transform.position);
         Instantiate(rocket_ter, rocket_point.transform.position, rocket_point.transform.rotation);
+    }
+    void instRStand()
+    {
+        rocket_point_stand.transform.LookAt(Tank.transform.position);
+        var shot = rocket_ter;
+        shot.transform.Rotate(180, 0, 0);
+        Instantiate(rocket_ter, rocket_point_stand.transform.position, rocket_point_stand.transform.rotation * Quaternion.Euler(88f, 180f, 180f));
     }
 
 }
