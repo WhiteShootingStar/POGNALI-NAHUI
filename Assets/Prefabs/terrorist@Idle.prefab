@@ -2016,6 +2016,7 @@ GameObject:
   - component: {fileID: 1637885039}
   - component: {fileID: 1637885040}
   - component: {fileID: 449641753}
+  - component: {fileID: 1221356496}
   m_Layer: 0
   m_Name: terrorist@Idle
   m_TagString: Terrorist
@@ -2126,10 +2127,24 @@ BoxCollider:
   m_GameObject: {fileID: 1637885038}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.25555417, y: 0.39057365, z: 0.28991932}
   m_Center: {x: -0.04442262, y: 0.1452869, z: -0.025125789}
+--- !u!136 &1221356496
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637885038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05
+  m_Height: 0.46
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.22, z: 0}
 --- !u!1 &1638226284
 GameObject:
   m_ObjectHideFlags: 0

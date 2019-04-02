@@ -17,7 +17,7 @@ public class TextScript : MonoBehaviour {
 	void Update () {
         
          kek += 40*Time.deltaTime;
-          print(kek);
+
         // a.offsetMin = new Vector2(a.offsetMin.x,0);
         a.offsetMax = new Vector2(a.offsetMax.x, kek);
         

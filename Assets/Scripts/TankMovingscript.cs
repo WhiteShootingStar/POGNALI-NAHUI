@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class TankMovingscript : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class TankMovingscript : MonoBehaviour
     float rotationXNorm = 0f;
     // Use this for initialization
     void Start()
-    {
+    {   
         
         total = GameObject.FindGameObjectsWithTag("Tom").Length;
         img.enabled = false;
@@ -53,11 +54,13 @@ public class TankMovingscript : MonoBehaviour
         timer_repare = 0;
         Healing.fillAmount = 0;
         Fire.SetActive(false);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         score = total - GameObject.FindGameObjectsWithTag("Tom").Length;
         reloadtimer -= Time.deltaTime;
         reloadtimergun -= Time.deltaTime;
@@ -118,8 +121,9 @@ public class TankMovingscript : MonoBehaviour
         if (score == total)
         {
             img.enabled = true;
-            print("You win");
+           // print("You win");
             Time.timeScale = 0;
+            Loader_Saver.Save(SceneManager.GetActiveScene());
         }
         acseleration = 1;
         if (reload.fillAmount == 1)

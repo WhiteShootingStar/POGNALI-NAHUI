@@ -90,7 +90,8 @@ public class Terrorist : MonoBehaviour
         rocket_point_stand.transform.LookAt(Tank.transform.position);
         var shot = rocket_ter;
         shot.transform.Rotate(180, 0, 0);
-        Instantiate(rocket_ter, rocket_point_stand.transform.position, rocket_point_stand.transform.rotation * Quaternion.Euler(88f, 180f, 180f));
+
+        Instantiate(shot, rocket_point_stand.transform.position, rocket_point_stand.transform.rotation * Quaternion.Euler(88f, 180f, 180f));
     }
 
 }
