@@ -11,16 +11,20 @@ public class Terrorist : MonoBehaviour
     Animator anim;
     public TankMovingscript Tank;
     float reloadtimer = 4.5f;
+   public  GameObject target;
     public int hp = 120;
     public bool roof;
     float prepTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
+        reloadtimer = 4.5f;
+        target = GameObject.FindGameObjectWithTag("Body");
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, Tank.transform.position));
+        anim.SetFloat("Distance", Vector3.Distance(transform.position, target.transform.position));
         anim.SetBool("IsWatchmen", roof);
+        Tank = target.GetComponent<TankMovingscript>();
         //    print(Vector3.Distance(transform.position, tank.transform.position));
         //  tank = GameObject.FindGameObjectWithTag("Body");
     }
@@ -40,20 +44,22 @@ public class Terrorist : MonoBehaviour
         else
         {
             reloadtimer -= Time.deltaTime;
-            anim.SetFloat("Distance", Vector3.Distance(transform.position, Tank.transform.position));
+            anim.SetFloat("Distance", Vector3.Distance(transform.position, target.transform.position));
             if (roof == false)
             {
-                agent.destination = Tank.transform.position;
+                agent.destination = target.transform.position;
+                agent.updateRotation = true;
 
 
-
-                if (Vector3.Distance(transform.position, Tank.transform.position) <= 200 && Tank.hp > 0)
+                
+                if (Vector3.Distance(transform.position, target.transform.position) <= 200 && Tank.hp > 0)
                 {
-                    transform.LookAt(Tank.transform.position);
-
+                   
+                    transform.LookAt(target.transform.position);
+                    rocket_point.transform.LookAt(target.transform.position );
                     if (reloadtimer < 0)
                     {
-
+                       
                         reloadtimer = 4.5f;
                         Invoke("instR", 0.9f);
 
@@ -64,14 +70,14 @@ public class Terrorist : MonoBehaviour
             {
 
 
-                if (Vector3.Distance(transform.position, Tank.transform.position) <= 800 && Tank.hp > 0)
+                if (Vector3.Distance(transform.position, target.transform.position) <= 800 && Tank.hp > 0)
                 {
-                    transform.LookAt(Tank.transform.position);
+                    transform.LookAt(target.transform.position);
 
 
                     if (reloadtimer < 0)
                     {
-
+                       
                         reloadtimer = 4.5f;
                         Invoke("instRStand", 0.9f);
 
@@ -87,11 +93,11 @@ public class Terrorist : MonoBehaviour
     }
     void instRStand()
     {
-        rocket_point_stand.transform.LookAt(Tank.transform.position);
+        rocket_point_stand.transform.LookAt(target.transform.position);
         var shot = rocket_ter;
-        shot.transform.Rotate(180, 0, 0);
+       // shot.transform.Rotate(180, 0, 0);
 
-        Instantiate(shot, rocket_point_stand.transform.position, rocket_point_stand.transform.rotation * Quaternion.Euler(88f, 180f, 180f));
+        Instantiate(shot, rocket_point_stand.transform.position, rocket_point_stand.transform.rotation /** Quaternion.Euler(88f, 180f, 180f)*/);
     }
 
 }

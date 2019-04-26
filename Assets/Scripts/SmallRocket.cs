@@ -5,7 +5,7 @@ using UnityEngine;
 public class SmallRocket : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 10000;
+    public float speed = 450;
 
     // Use this for initialization
     void Start()
@@ -25,7 +25,7 @@ public class SmallRocket : MonoBehaviour
     {
         if (other.tag.Equals("Terrorist"))
         {
-            other.gameObject.GetComponent<Terrorist>().hp -= Random.Range(8, 11);
+            other.gameObject.GetComponent<Terrorist>().hp -= Random.Range(15, 25);
             print(other.gameObject.GetComponent<Terrorist>().hp);
         }
     }

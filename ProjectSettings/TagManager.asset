@@ -16,6 +16,7 @@ TagManager:
   - Body
   - Shot_Ter
   - Terrorist
+  - EnemyTank
   layers:
   - Default
   - TransparentFX

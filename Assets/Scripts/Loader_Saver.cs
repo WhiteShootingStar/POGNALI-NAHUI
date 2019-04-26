@@ -75,7 +75,7 @@ public class Loader_Saver : MonoBehaviour
         }
         while (!asyncOperation.isDone)
         {
-            canvas.Slider.fillAmount += asyncOperation.progress / 100;
+            canvas.Slider.fillAmount += asyncOperation.progress ;
 
             Debug.Log("puk");
             if (asyncOperation.progress >= 0.9f)

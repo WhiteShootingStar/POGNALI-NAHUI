@@ -24,7 +24,11 @@ public class Pause : MonoBehaviour
     void Update()
     {
         pauseGame();
-        Cursor.visible = false;
+        if (isPaused)
+        {
+            Cursor.visible = true;
+        }
+        else Cursor.visible = false;
     }
 
     void pauseGame()
@@ -33,6 +37,7 @@ public class Pause : MonoBehaviour
         {
             isPaused = true;
             Time.timeScale = 0f;
+            
             Cursor.visible = true;
             canv.enabled = true;
         }

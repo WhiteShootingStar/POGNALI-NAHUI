@@ -26,8 +26,8 @@ public class TankMovingscript : MonoBehaviour
     float rotationXNorm = 0f;
     // Use this for initialization
     void Start()
-    {   
-        
+    {
+        Time.timeScale = 1f;
         total = GameObject.FindGameObjectsWithTag("Tom").Length;
         img.enabled = false;
         rb = GetComponent<Rigidbody>();

@@ -62,6 +62,13 @@ public class Rocket : MonoBehaviour {
             Destroy(gameObject);
 
         }
+        else if(other.tag == "EnemyTank")
+        {
+            Instantiate(exp, transform.position, transform.rotation);
+            other.gameObject.GetComponent<EnemyTanKScript>().hp -= Random.Range(120, 220);
+            print(other.gameObject.GetComponent<EnemyTanKScript>().hp);
+            Destroy(gameObject);
+        }
         else
         {
            

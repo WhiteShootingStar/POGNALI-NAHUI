@@ -19,9 +19,9 @@ public class rocketTer : MonoBehaviour
     public void Update()
     {
        
-        rigid.transform.Translate(Vector3.up * Time.fixedDeltaTime * speed * 15);
+       // rigid.transform.Translate(Vector3.up * Time.fixedDeltaTime * speed * 15);
       //  rigid.transform.Translate(Vector3.down * Time.fixedDeltaTime * speed*15 );
-          rigid.transform.Translate(Vector3.back * Time.fixedDeltaTime * speed);
+          rigid.transform.Translate(Vector3.forward* Time.fixedDeltaTime * speed*15);
        
     }
 
